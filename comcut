@@ -7,7 +7,7 @@ unset LD_LIBRARY_PATH
 exitcode=0
 
 ffmpegPath="ffmpeg"
-comskipPath="comskip"
+comskipPath=$ldpath/Plex\ Commercial\ Skipper
 
 if [[ $# -lt 1 ]]; then
 
@@ -21,7 +21,7 @@ if [[ $# -lt 1 ]]; then
   exit 1
 fi
 
-comskipini=$HOME/.comskip.ini
+comskipini=$ldpath/Resources/comskip.ini
 
 deleteedl=true
 deletemeta=true
@@ -139,7 +139,7 @@ fi
 
 
 if [ ! -f "$edlfile" ]; then
-  $comskipPath $comskipoutput --ini="$comskipini" "$infile"
+  "$comskipPath" $comskipoutput --ini="$comskipini" "$infile"
 fi
 
 start=0
